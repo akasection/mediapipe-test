@@ -34,7 +34,7 @@ export default function mediapipePlugin(): PluginOption {
   return {
     name: "vite-plugin-mediapipe",
     enforce: "pre",
-    async transform(code, id) {
+    transform(code, id) {
       const fileName = basename(id) as keyof typeof EXPORT_NAMES;
       if (!(fileName in EXPORT_NAMES)) return { code, map: null };
       return {
